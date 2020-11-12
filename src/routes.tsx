@@ -12,6 +12,7 @@ import Investimento from "./pages/Investimento";
 import Forum from "./pages/Fórum";
 import NossosParceiros from "./pages/Nossos-parceiros";
 import Comunidades from "./pages/Comunidade";
+import Perfil from "./pages/Perfil";
 
 const Routes = () => {
   return (
@@ -28,6 +29,7 @@ const Routes = () => {
         <Route path="/comunidade" component={Comunidades} />
         <Route path="/forum" component={Forum} />
         <Route path="/nossos-parceiros" component={NossosParceiros} />
+        <Route path="/perfil" component={Perfil} />
       </Switch>
     </BrowserRouter>
   );
