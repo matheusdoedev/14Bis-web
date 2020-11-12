@@ -13,6 +13,14 @@ const Reset = createGlobalStyle`
         padding: 0.625rem;
     }
 
+    button {
+        cursor: pointer;
+    }
+
+    fieldset {
+        border: none;
+    }
+
     body {
         font-family: "Open Sans", Helvetica, Arial, sans-serif;
         color: var(--gray);
