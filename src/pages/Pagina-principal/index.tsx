@@ -29,9 +29,7 @@ const PaginaInicial = () => {
   return (
     <PaginaPrincipalContainer>
       <Container>
-        <Header>
-          <img src={logoImg} alt="14Bis" />
-        </Header>
+        <Header />
 
         <Conteudo>
           <h1>Para o seu sucesso, 14 Bis é o caminho.</h1>
