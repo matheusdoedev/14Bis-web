@@ -4,7 +4,7 @@ export const CadastroContainer = styled.main`
   & {
     background: var(--gradient);
     min-height: 100vh;
-    padding: var(--gap-xl) 0;
+    padding: var(--gap-lg) 0;
 
     img {
       margin-bottom: var(--gap-lg);

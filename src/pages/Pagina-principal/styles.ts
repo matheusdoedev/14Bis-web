@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 export const PaginaPrincipalContainer = styled.main`
   & {
+  }
+`;
+
+export const Conteudo = styled.section`
+  & {
+    width: 100%;
+    padding: var(--gap-lg) 0;
+
     h1 {
-      margin-top: var(--gap-lg);
       color: var(--blue);
       align-self: flex-start;
     }
@@ -14,14 +21,6 @@ export const PaginaPrincipalContainer = styled.main`
       align-self: flex-start;
       margin-top: var(--gap-md);
     }
-  }
-`;
-
-export const Conteudo = styled.section`
-  & {
-    width: 100%;
-    height: 60vh;
-    overflow-y: scroll;
   }
 `;
 

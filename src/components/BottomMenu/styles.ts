@@ -9,9 +9,6 @@ export const BottomMenuContainer = styled.nav`
     padding: var(--gap-md) 0;
     width: 100vw;
 
-    position: absolute;
-    top: 99vh;
-
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -29,7 +26,7 @@ export const BottomMenuItem = styled(Link)`
     p {
       color: white;
       font-weight: 400;
-      margin-top: var(--gap);
+      margin-top: 8px;
     }
   }
 `;
