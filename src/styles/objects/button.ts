@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 
 export const Button = styled(Link)`
   & {
-    display: inline-block;
+    display: block;
     padding: 12px;
     text-align: center;
     background: var(--gradient);
     border-radius: 5px;
     color: white;
     transition: 0.2s;
+    border: none;
+    width: 100%;
 
     :hover {
       filter: brightness(85%);

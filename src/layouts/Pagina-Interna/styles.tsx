@@ -39,7 +39,7 @@ export const BottomButton = styled(Link)`
     font-weight: 400;
     text-align: left;
     align-self: end;
-    margin-top: var(--gap-xl);
+    margin: var(--gap-xl) 0;
 
     display: flex;
     justify-content: space-between;
@@ -50,7 +50,6 @@ export const BottomButton = styled(Link)`
 export const Conteudo = styled.article`
   & {
     width: 85%;
-    height: 50vh;
 
     p,
     h2 {

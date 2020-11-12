@@ -17,13 +17,25 @@ export const TriagemForm = styled.form`
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 
-    h1 {
+    h1,
+    h2 {
       color: var(--blue);
+    }
+
+    h1 {
       margin-bottom: var(--gap-md);
+    }
+
+    h2 {
+      margin-bottom: var(--gap-sm);
     }
 
     a {
       width: 100%;
+    }
+
+    button {
+      margin-top: var(--gap-lg);
     }
   }
 `;

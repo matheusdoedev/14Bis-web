@@ -6,11 +6,8 @@ export const BottomMenuContainer = styled.nav`
   & {
     background: var(--gradient);
     border-radius: 35px 35px 0 0;
-    padding: var(--gap-md) 0;
+    padding: var(--gap-sm) 0 var(--gap) 0;
     width: 100vw;
-
-    position: absolute;
-    top: 99vh;
 
     display: flex;
     justify-content: space-around;
@@ -29,7 +26,7 @@ export const BottomMenuItem = styled(Link)`
     p {
       color: white;
       font-weight: 400;
-      margin-top: var(--gap);
+      margin-top: 8px;
     }
   }
 `;

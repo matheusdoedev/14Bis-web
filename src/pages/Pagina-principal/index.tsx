@@ -29,14 +29,12 @@ const PaginaInicial = () => {
   return (
     <PaginaPrincipalContainer>
       <Container>
-        <Header>
-          <img src={logoImg} alt="14Bis" />
-        </Header>
-
-        <h1>Para o seu sucesso, 14 Bis é o caminho.</h1>
-        <p>O que a 14 Bis faz por você?</p>
+        <Header />
 
         <Conteudo>
+          <h1>Para o seu sucesso, 14 Bis é o caminho.</h1>
+          <p>O que a 14 Bis faz por você?</p>
+
           <Menu>
             {MenuOptions.map((option) => (
               <Link key={option.path} to={option.path}>
