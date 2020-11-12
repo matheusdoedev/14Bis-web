@@ -6,7 +6,7 @@ export const BottomMenuContainer = styled.nav`
   & {
     background: var(--gradient);
     border-radius: 35px 35px 0 0;
-    padding: var(--gap-md) 0;
+    padding: var(--gap-sm) 0 var(--gap) 0;
     width: 100vw;
 
     display: flex;
