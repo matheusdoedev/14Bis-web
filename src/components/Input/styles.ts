@@ -5,7 +5,7 @@ export const InputBlock = styled.div`
     display: flex;
     max-width: 100%;
     flex-direction: column;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 
     label {
       margin-bottom: 8px;
