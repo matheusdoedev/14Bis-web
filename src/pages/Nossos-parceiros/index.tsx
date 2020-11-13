@@ -1,4 +1,8 @@
 import React from "react";
+// styles
+import { LogoInovativa } from "./styles";
+// imgs
+import logoInovativa from "../../assets/logo-inovativa.svg";
 // layouts
 import PaginaInterna from "../../layouts/Pagina-Interna";
 
@@ -9,10 +13,14 @@ const NossosParceiros = () => {
       bottomButtonLabel="Saiba Mais"
       bottomButtonPath="/nossos-parceiros/saiba-mais"
     >
-      <p>A 14 Bis é uma empresa..........</p>
-      <h2>O que a 14 Bis faz por você?</h2>
-      <p>Ela pode ajudar assim, assim e assado.</p>
-      <p>Quer conhecer mais sobre nossos parceiros?</p>
+      <h2>O que é a InovAtiva?</h2>
+      <p>
+        “Criado em 2013 pelo Ministério da Indústria, Comércio Exterior e
+        Serviços (MDIC) e realizado pelo ministério em parceria com o SEBRAE, o
+        InovAtiva Brasil é o maior e mais abrangente programa de aceleração de
+        startups do país.” (https://www.inovativabrasil.com.br/sobre/)
+      </p>
+      <LogoInovativa src={logoInovativa} alt="Inovativa" />
     </PaginaInterna>
   );
 };

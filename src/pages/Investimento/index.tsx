@@ -9,9 +9,12 @@ const Investimento = () => {
       bottomButtonLabel="Encontrar Investidor"
       bottomButtonPath="/investimento"
     >
-      <p>A 14 Bis é uma empresa..........</p>
-      <h2>O que a 14 Bis faz por você?</h2>
-      <p>Ela pode ajudar assim, assim e assado.</p>
+      <p>
+        O que é investimento? Quem são os investidores? Quando posso pedir um
+        investimento? Benefícios de um ivestimento.
+      </p>
+      <h2>Encontrar um Investidor</h2>
+      <p>Ela pode ajudar assim, assim e assado. </p>
       <p>Quer conhecer mais sobre nossos parceiros?</p>
     </PaginaInterna>
   );

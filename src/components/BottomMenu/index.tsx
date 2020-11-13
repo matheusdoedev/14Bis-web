@@ -15,9 +15,9 @@ interface BottomMenuItemProps {
 
 const BottomMenuItems: BottomMenuItemProps[] = [
   { img: homeImg, label: "Inicio", path: "/inicio" },
-  { img: bellImg, label: "Notificações", path: "/notificacoes" },
+  { img: bellImg, label: "Notificações", path: "/startups/0/notificacoes" },
   { img: buildingImg, label: "14 Bis", path: "/quem-somos" },
-  { img: userImg, label: "Conta", path: "/perfil" },
+  { img: userImg, label: "Conta", path: "/startups/0/perfil" },
 ];
 
 const BottomMenu = () => {

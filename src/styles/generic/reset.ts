@@ -6,6 +6,11 @@ const Reset = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
 
     a {
         text-decoration: none;
@@ -21,11 +26,16 @@ const Reset = createGlobalStyle`
         border: none;
     }
 
+    html,
     body {
         font-family: "Open Sans", Helvetica, Arial, sans-serif;
         color: var(--gray);
 
-        min-height: 100vh;
+        height: 100%;
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        margin: 0;
     }
 
     img {

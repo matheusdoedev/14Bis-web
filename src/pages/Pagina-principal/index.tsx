@@ -1,48 +1,34 @@
 import React from "react";
-// imgs
-import logoImg from "../../assets/logo-2.svg";
-import arrowRight from "../../assets/arrow-right.svg";
 // styles
-import { PaginaPrincipalContainer, Menu, Conteudo } from "./styles";
+import { PaginaPrincipalContainer, Conteudo } from "./styles";
 // components
 import Header from "../../components/Header";
 import { Container } from "../../styles/objects/container";
-import { Link } from "react-router-dom";
 import BottomMenu from "../../components/BottomMenu";
-
-interface Option {
-  path: string;
-  label: string;
-}
-
-const MenuOptions: Option[] = [
-  { path: "/quem-somos", label: "Sobre a 14Bis" },
-  { path: "/consultorias", label: "Consultorias" },
-  { path: "/mentorias", label: "Mentorias" },
-  { path: "/investimento", label: "Investimento" },
-  { path: "/comunidade", label: "Comunidade" },
-  { path: "/forum", label: "Fórum" },
-  { path: "/quem-somos", label: "Nossos Parceiros" },
-];
+import Menu from "../../components/Menu";
+import Title from "../../components/Title";
 
 const PaginaInicial = () => {
   return (
-    <PaginaPrincipalContainer>
+    <PaginaPrincipalContainer data-anime="modal">
       <Container>
         <Header />
 
         <Conteudo>
-          <h1>Para o seu sucesso, 14 Bis é o caminho.</h1>
+          <Title title="Para o seu sucesso, 14 Bis é o caminho." />
           <p>O que a 14 Bis faz por você?</p>
 
-          <Menu>
-            {MenuOptions.map((option) => (
-              <Link key={option.path} to={option.path}>
-                {option.label}{" "}
-                <img src={arrowRight} alt="Ir para a proxima página" />
-              </Link>
-            ))}
-          </Menu>
+          <Menu
+            options={[
+              { path: "/quem-somos", label: "Sobre a 14Bis" },
+              { path: "/consultorias", label: "Consultorias" },
+              { path: "/mentorias", label: "Mentorias" },
+              { path: "/investimento", label: "Investimento" },
+              { path: "/comunidade", label: "Comunidade" },
+              { path: "/forum", label: "Fórum" },
+              { path: "/nossos-parceiros", label: "Nossos Parceiros" },
+            ]}
+          />
         </Conteudo>
 
         <BottomMenu />

@@ -12,6 +12,9 @@ export const BottomMenuContainer = styled.nav`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    position: absolute;
+    bottom: 0;
   }
 `;
 
