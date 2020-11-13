@@ -5,6 +5,7 @@ import verificImg from "../../assets/verific.svg";
 import PaginaInterna from "../../layouts/Pagina-Interna";
 // components
 import Modal from "../../components/Modal";
+import { SecondaryButton } from "../../styles/objects/button";
 
 const Mentorias = () => {
   return (
@@ -42,9 +43,9 @@ const Mentorias = () => {
         </ul>
       </PaginaInterna>
 
-      <Modal 
-        name="mentorias" 
-        title="Falta pouco para você marcar sua mentoria!" 
+      <Modal
+        name="mentorias"
+        title="Falta pouco para você marcar sua mentoria!"
         content="Para melhor te ajudar a escolher o melhor mentor, precisamos que você atualize o perfil de sua empresa."
       >
         <SecondaryButton to="/startups/0/editar-dados">
