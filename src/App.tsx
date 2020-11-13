@@ -6,6 +6,8 @@ import Reset from "./styles/generic/reset";
 import Elements from "./styles/base/elements";
 // routes
 import Routes from "./routes";
+// contexts
+import { Modal } from "./hooks/modal";
 
 const App = () => {
   return (
@@ -15,7 +17,9 @@ const App = () => {
       <Reset />
       <Elements />
 
-      <Routes />
+      <Modal>
+        <Routes />
+      </Modal>
     </>
   );
 };
