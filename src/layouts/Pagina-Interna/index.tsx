@@ -27,7 +27,7 @@ const PaginaInterna: React.FC<PaginaInternaProps> = ({
   bottomButtonPath,
 }) => {
   return (
-    <PaginaInternaContainer>
+    <PaginaInternaContainer data-anime="modal">
       <Container>
         <Header>
           <ReturnButton to="/inicio">

@@ -9,10 +9,12 @@ const Comunidades = () => {
       bottomButtonLabel="Quero achar uma!"
       bottomButtonPath="/comunidades"
     >
-      <p>A 14 Bis é uma empresa..........</p>
-      <h2>O que a 14 Bis faz por você?</h2>
-      <p>Ela pode ajudar assim, assim e assado.</p>
-      <p>Quer conhecer mais sobre nossos parceiros?</p>
+      <p>
+        O que é uma comunidade? Quando eu posso entrar em alguma comunidade?
+        Benefícios de uma comunidade...
+      </p>
+      <h2>Encontre uma Comunidade</h2>
+      <p>Como encontrar comunidades....... O que fazer em uma comunidade</p>
     </PaginaInterna>
   );
 };

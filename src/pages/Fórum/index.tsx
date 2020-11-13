@@ -9,10 +9,12 @@ const Forum = () => {
       bottomButtonLabel="Nossa Metodologia"
       bottomButtonPath="/nossa-metodologia"
     >
-      <p>A 14 Bis é uma empresa..........</p>
-      <h2>O que a 14 Bis faz por você?</h2>
-      <p>Ela pode ajudar assim, assim e assado.</p>
-      <p>Quer conhecer mais sobre nossos parceiros?</p>
+      <p>
+        O que é o Fórum? Como usar o Fórum? O que fazer no Fórum?
+        .odjidjdijdjsdjdsjcjnjcjcn
+      </p>
+      <h2>Envie seu FeeBack pra gente</h2>
+      <p>Como encontrar comunidades....... O que fazer em uma comunidade</p>
     </PaginaInterna>
   );
 };

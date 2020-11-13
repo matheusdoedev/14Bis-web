@@ -49,12 +49,27 @@ export const BottomButton = styled(Link)`
 
 export const Conteudo = styled.article`
   & {
-    width: 85%;
+    width: 100%;
 
     p,
     h2 {
       max-width: 100%;
       margin-bottom: var(--gap-md);
+    }
+
+    li {
+      display: flex;
+      align-items: flex-start;
+
+      img {
+        width: 11px;
+        height: 11px;
+        margin-right: var(--gap);
+      }
+
+      p {
+        margin-top: -6px;
+      }
     }
   }
 `;
