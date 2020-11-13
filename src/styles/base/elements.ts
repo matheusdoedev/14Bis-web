@@ -34,7 +34,7 @@ const Elements = createGlobalStyle`
 
     p {
         line-height: 1.5em;
-        max-width: 30em;
+        width: 100%;
     }
 
     a,
