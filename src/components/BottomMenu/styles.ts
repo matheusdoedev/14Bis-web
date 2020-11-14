@@ -13,9 +13,6 @@ export const BottomMenuContainer = styled.nav`
     justify-content: space-around;
     align-items: center;
 
-    position: absolute;
-    bottom: 0;
-
     @media (min-width: 960px) {
       display: none;
     }
@@ -33,12 +30,13 @@ export const BottomMenuItem = styled(Link)`
     p {
       color: white;
       font-weight: 400;
+      font-size: 0.875rem;
       margin-top: 8px;
     }
 
     img {
-      width: 26px;
-      height: 30px;
+      width: 35px;
+      height: 35px;
       margin: 0 auto;
     }
   }

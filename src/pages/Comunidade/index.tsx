@@ -6,35 +6,40 @@ import Modal from "../../components/Modal";
 import { SecondaryButton } from "../../styles/objects/button";
 import BottomButton from "../../components/BottomButton";
 import TextList from "../../components/TextList";
+import { Col } from "react-bootstrap";
 
 const Comunidades = () => {
   return (
     <>
       <PaginaInterna title="Comunidade">
-        <h2>
-          &gt; Por que entrar em uma comunidade?
-          <br />
-          <br />
-          Em uma comunidade você pode...
-        </h2>
+        <Col xs="12" md="6">
+          <h2>
+            &gt; Por que entrar em uma comunidade?
+            <br />
+            <br />
+            Em uma comunidade você pode...
+          </h2>
 
-        <TextList
-          options={[
-            {
-              content:
-                "Trocar ideias e experiências com empresas, mentores e consultores;",
-            },
-            {
-              content:
-                "Construir uma boa imagem da sua startup frente ao público;",
-            },
-            {
-              content: "Se destacar no mercado.",
-            },
-          ]}
-        />
+          <TextList
+            options={[
+              {
+                content:
+                  "Trocar ideias e experiências com empresas, mentores e consultores;",
+              },
+              {
+                content:
+                  "Construir uma boa imagem da sua startup frente ao público;",
+              },
+              {
+                content: "Se destacar no mercado.",
+              },
+            ]}
+          />
 
-        <BottomButton label="Quero achar uma!" to="/comunidades" />
+          <BottomButton label="Quero achar uma!" to="/comunidades" />
+        </Col>
+
+        <Col xs="12" md="6"></Col>
       </PaginaInterna>
 
       <Modal

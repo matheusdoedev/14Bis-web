@@ -11,95 +11,84 @@ import quemSomosImg from "../../assets/quem-somos.svg";
 import { PaginaPrincipalContainer, Conteudo } from "./styles";
 // components
 import Header from "../../components/Header";
-import { Container } from "../../styles/objects/container";
+import { Container, Row, Col } from "react-bootstrap";
 import BottomMenu from "../../components/BottomMenu";
 import Menu from "../../components/Menu";
 import Title from "../../components/Title";
 import HeaderDesktop from "../../components/Header-desktop";
-import { Row } from "../../styles/objects/row";
 
 const PaginaInicial = () => {
   const perfil = localStorage.getItem("Perfil");
 
   return (
     <PaginaPrincipalContainer data-anime="modal">
-      <Container>
-        <HeaderDesktop />
-        <Row>
-          <Header />
-        </Row>
+      <HeaderDesktop />
+      <Container fluid>
+        <Header />
 
         <Row>
-          <Conteudo>
-            <Title title="Para o seu sucesso, 14 Bis é o caminho." />
-            <p>O que a 14 Bis faz por você?</p>
+          <Col xs="12">
+            <Conteudo>
+              <Title title="Para o seu sucesso, 14 Bis é o caminho." />
+              <p>O que a 14 Bis faz por você?</p>
 
-            {perfil === "Mentor" ? (
-              <Menu
-                options={[
-                  {
-                    path: "/quem-somos",
-                    label: "Sobre a 14Bis",
-                    image: quemSomosImg,
-                  },
-                  {
-                    path: "/mentores/consultorias",
-                    label: "Consultorias",
-                    image: consultoriasImg,
-                  },
-                  {
-                    path: "/mentores/mentorias",
-                    label: "Mentorias",
-                    image: mentoriasImg,
-                  },
-                  {
-                    path: "/nossos-parceiros",
-                    label: "Nossos Parceiros",
-                    image: nossosParceirosImg,
-                  },
-                ]}
-              />
-            ) : (
-              <Menu
-                options={[
-                  {
-                    path: "/quem-somos",
-                    label: "Sobre a 14Bis",
-                    image: quemSomosImg,
-                  },
-                  {
-                    path: "/startups/consultorias",
-                    label: "Consultorias",
-                    image: consultoriasImg,
-                  },
-                  {
-                    path: "/startups/mentorias",
-                    label: "Mentorias",
-                    image: mentoriasImg,
-                  },
-                  {
-                    path: "/startups/investimento",
-                    label: "Investimento",
-                    image: investimentoImg,
-                  },
-                  {
-                    path: "/startups/comunidade",
-                    label: "Comunidade",
-                    image: comunidadeImg,
-                  },
+              {perfil === "Mentor" ? (
+                <Menu
+                  options={[
+                    {
+                      path: "/mentores/consultorias",
+                      label: "Consultorias",
+                      image: consultoriasImg,
+                    },
+                    {
+                      path: "/mentores/mentorias",
+                      label: "Mentorias",
+                      image: mentoriasImg,
+                    },
+                    {
+                      path: "/nossos-parceiros",
+                      label: "Nossos Parceiros",
+                      image: nossosParceirosImg,
+                    },
+                  ]}
+                />
+              ) : (
+                <Menu
+                  options={[
+                    {
+                      path: "/startups/consultorias",
+                      label: "Consultorias",
+                      image: consultoriasImg,
+                    },
+                    {
+                      path: "/startups/mentorias",
+                      label: "Mentorias",
+                      image: mentoriasImg,
+                    },
+                    {
+                      path: "/startups/investimento",
+                      label: "Investimento",
+                      image: investimentoImg,
+                    },
+                    {
+                      path: "/startups/comunidade",
+                      label: "Comunidade",
+                      image: comunidadeImg,
+                    },
 
-                  {
-                    path: "/nossos-parceiros",
-                    label: "Nossos Parceiros",
-                    image: nossosParceirosImg,
-                  },
-                ]}
-              />
-            )}
-          </Conteudo>
+                    {
+                      path: "/nossos-parceiros",
+                      label: "Nossos Parceiros",
+                      image: nossosParceirosImg,
+                    },
+                  ]}
+                />
+              )}
+            </Conteudo>
+          </Col>
+
+          <BottomMenu />
         </Row>
-
-        <BottomMenu />
       </Container>
     </PaginaPrincipalContainer>
   );

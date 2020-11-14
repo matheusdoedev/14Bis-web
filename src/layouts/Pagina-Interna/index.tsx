@@ -5,12 +5,11 @@ import { ReturnButton, PaginaInternaContainer, Conteudo } from "./styles";
 import arrowLeft from "../../assets/arrow-left.svg";
 // components
 import Header from "../../components/Header";
-import { Container } from "../../styles/objects/container";
+import { Container, Row, Col } from "react-bootstrap";
 import BottomMenu from "../../components/BottomMenu";
+import HeaderDesktop from "../../components/Header-desktop";
 // context
 import { ModalContext } from "../../hooks/modal";
-import HeaderDesktop from "../../components/Header-desktop";
-import { Row } from "../../styles/objects/row";
 
 interface PaginaInternaProps {
   title: string;
@@ -25,22 +24,23 @@ const PaginaInterna: React.FC<PaginaInternaProps> = ({ children, title }) => {
       onClick={() => modalContext?.handleInactive()}
     >
       <HeaderDesktop />
-      <Container>
+      <Header>
+        <ReturnButton to="/inicio">
+          <img src={arrowLeft} alt="Voltar" />
+        </ReturnButton>
+      </Header>
+      <Container fluid>
         <Row>
-          <Header>
-            <ReturnButton to="/inicio">
-              <img src={arrowLeft} alt="Voltar" />
-            </ReturnButton>
-          </Header>
+          <Col xs="12">
+            <h1>{title}</h1>
+          </Col>
         </Row>
 
+        <Row>{children}</Row>
+
         <Row>
-          <h1>{title}</h1>
+          <BottomMenu />
         </Row>
-
-        <Conteudo>{children}</Conteudo>
-
-        <BottomMenu />
       </Container>
     </PaginaInternaContainer>
   );

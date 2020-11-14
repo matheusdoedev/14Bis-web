@@ -2,9 +2,7 @@ import styled from "styled-components";
 
 export const HeaderContainer = styled.header`
   & {
-    display: grid;
     width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
     padding-top: calc(var(--gap) * 4);
     align-items: center;
 
@@ -16,11 +14,10 @@ export const HeaderContainer = styled.header`
 
 export const LogoHeader = styled.img`
   & {
-    grid-column-start: 2;
-    justify-self: center;
-
     width: 61px;
     height: 20px;
+
+    margin: 0 auto;
   }
 `;
 

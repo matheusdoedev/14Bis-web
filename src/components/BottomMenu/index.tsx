@@ -2,7 +2,7 @@ import React from "react";
 // imgs
 import userImg from "../../assets/user.svg";
 import homeImg from "../../assets/home.svg";
-import buildingImg from "../../assets/building.svg";
+import comunidadesImg from "../../assets/comunidade.svg";
 import bellImg from "../../assets/bell.svg";
 // styles
 import { BottomMenuContainer, BottomMenuItem } from "./styles";
@@ -26,7 +26,7 @@ const BottomMenu = () => {
           ? "/mentores/notificacoes/0"
           : "/startups/notificacoes/0",
     },
-    { img: buildingImg, label: "14 Bis", path: "/quem-somos" },
+    { img: comunidadesImg, label: "Comunidades", path: "/startups/comunidade" },
     {
       img: userImg,
       label: "Conta",

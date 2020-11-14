@@ -50,12 +50,26 @@ export const LevelEmpresa = styled.div`
 
 export const NomeDaEmpresa = styled.h2`
   & {
-    margin-top: var(--gap-xl);
     align-self: flex-start;
     text-align: left;
 
     font-size: 0.875rem;
     font-weight: 600;
+  }
+`;
+
+export const Segmento = styled.div`
+  & {
+    display: flex;
+
+    span {
+      margin-right: 12px;
+      font-weight: 600;
+    }
+
+    p {
+      font-size: 0.875rem;
+    }
   }
 `;
 
@@ -75,14 +89,35 @@ export const Dados = styled.section`
   }
 `;
 
-export const DadosItem = styled.div`
+export const PublicoAlvo = styled.div`
   & {
     display: flex;
     justify-self: flex-start;
     align-items: center;
+    flex-direction: column;
 
-    span {
-      margin-left: 12px;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+
+    span:first-child {
+      font-size: 12px;
+    }
+  }
+`;
+
+export const DadosItem = styled.article`
+  & {
+    display: flex;
+
+    div {
+      justify-content: center;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
     }
   }
 `;

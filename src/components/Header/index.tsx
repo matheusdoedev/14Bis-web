@@ -3,12 +3,23 @@ import React from "react";
 import logoImg from "../../assets/logo-2.svg";
 // styles
 import { HeaderContainer, LogoHeader } from "./styles";
+// components
+import { Container, Row, Col } from "react-bootstrap";
 
 const Header: React.FC = ({ children }) => {
   return (
     <HeaderContainer>
-      <LogoHeader src={logoImg} alt="14Bis" />
-      {children}
+      <Container>
+        <Row style={{ alignItems: "center" }}>
+          <Col xs={{ offset: 3, span: 6 }}>
+            <LogoHeader src={logoImg} alt="14Bis" />
+          </Col>
+
+          <Col xs="3" style={{ display: "flex", justifyItems: "flex-end" }}>
+            {children}
+          </Col>
+        </Row>
+      </Container>
     </HeaderContainer>
   );
 };
