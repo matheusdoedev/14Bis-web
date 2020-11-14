@@ -11,11 +11,13 @@ import {
   LogoEmpresa,
   LevelEmpresa,
   NomeDaEmpresa,
+  Segmento,
   Dados,
   DadosItem,
+  PublicoAlvo,
 } from "./styles";
 // components
-import { Container } from "../../styles/objects/container";
+import { Container, Row, Col } from "react-bootstrap";
 import Menu from "../../components/Menu";
 import { Button } from "../../styles/objects/button";
 
@@ -28,34 +30,60 @@ const Perfil = () => {
       </PerfilHeader>
 
       <Container>
-        <NomeDaEmpresa>Nome da empresa</NomeDaEmpresa>
+        <Row style={{ alignItems: "center", marginTop: "var(--gap-xl)" }}>
+          <Col xs="8">
+            <NomeDaEmpresa>Nome da empresa</NomeDaEmpresa>
 
-        <Dados>
-          <div>
-            <DadosItem>
-              <img src={faturamentoImg} alt="Faturamento" />
-              <span>Faturamento</span>
-            </DadosItem>
-            <DadosItem>
+            <Segmento>
+              <span>Segmento:</span>
+              <p>Logística e Mobilidade Urbana</p>
+            </Segmento>
+          </Col>
+          <Col xs="4">
+            <PublicoAlvo>
+              <span>Publico Alvo</span>
               <img src={b2cImg} alt="B2C" />
               <span>B2C</span>
-            </DadosItem>
-          </div>
-          <div>
-            <DadosItem>
-              <img src={funcionariosImg} alt="Funcionários" />
-              <span>Funcionários</span>
-            </DadosItem>
-            <DadosItem>
-              <img src={chartImg} alt="Estatística" />
-              <span>Estatística</span>
-            </DadosItem>
-          </div>
-        </Dados>
+            </PublicoAlvo>
+          </Col>
+        </Row>
 
-        <Button to="/" style={{ marginTop: "var(--gap-lg)" }}>
-          Sair da conta
-        </Button>
+        <Row>
+          <Col xs="12" md="6">
+            <h2>Sobre</h2>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries,
+            </p>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs="12">
+            <Dados>
+              <DadosItem>
+                <div>
+                  <img src={faturamentoImg} alt="Faturamento" />
+                  <span>Faturamento</span>
+                </div>
+                <div>
+                  <span>5.000 - 10.000</span>
+                </div>
+              </DadosItem>
+            </Dados>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col xs="12">
+            <Button to="/" style={{ marginTop: "var(--gap-lg)" }}>
+              Sair da conta
+            </Button>
+          </Col>
+        </Row>
       </Container>
     </PerfilContainer>
   );

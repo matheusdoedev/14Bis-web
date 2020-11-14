@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
   & {
     width: 100%;
     background: var(--gradient);
-    padding: var(--gap-sm) 0;
+    padding: var(--gap) 0;
 
     @media (max-width: 960px) {
       display: none;
@@ -14,6 +14,15 @@ export const HeaderContainer = styled.header`
 
 export const NavWrapper = styled.nav`
   & {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%;
+    display: flex;
+    justify-content: flex-end;
+
     ul {
       display: flex;
     }

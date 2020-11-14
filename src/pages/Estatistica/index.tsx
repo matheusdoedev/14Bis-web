@@ -1,30 +1,19 @@
 import React from "react";
-// styles
-import { EstatisticaContainer } from "./styles";
 // components
-import { Container } from "../../styles/objects/container";
-import Header from "../../components/Header";
-import ReturnButton from "../../components/ReturnButton";
-import Title from "../../components/Title";
-import BottomMenu from "../../components/BottomMenu";
+import PaginaInterna from "../../layouts/Pagina-Interna";
+import { Col } from "react-bootstrap";
 
 const Estatistica = () => {
   return (
-    <EstatisticaContainer>
-      <Container>
-        <Header>
-          <ReturnButton to="/startups/0/perfil" />
-        </Header>
-
-        <Title title="Estatistica" />
-
-        <p>
-          empresa..........osdisdjsdjsjsodsjsidjiosdioasjjxijxijxjcijcjcijcijcijcijicjcijcijcijcijdjdjdjdjaiaiaiiiiiiiiisaidsdidkcckkac.
-        </p>
-
-        <BottomMenu />
-      </Container>
-    </EstatisticaContainer>
+    <>
+      <PaginaInterna title="Estatistica">
+        <Col xs="12" md="6">
+          <p>
+            empresa..........osdisdjsdjsjsodsjsidjiosdioasjjxijxijxjcijcjcijcijcijcijicjcijcijcijcijdjdjdjdjaiaiaiiiiiiiiisaidsdidkcckkac.
+          </p>
+        </Col>
+      </PaginaInterna>
+    </>
   );
 };
 

@@ -3,50 +3,56 @@ import React from "react";
 import { HeaderContainer, NavWrapper } from "./styles";
 // components
 import Brand from "../Brand";
-import { Container } from "../../styles/objects/container";
+import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { Row } from "../../styles/objects/row";
 
 const HeaderDesktop = () => {
   const perfil = localStorage.getItem("Perfil");
 
   return (
     <HeaderContainer>
-      <Row style={{ alignItems: "center" }}>
-        <Brand />
-        <NavWrapper>
-          <ul>
-            <li>
-              <Link to="/inicio">Inicio</Link>
-            </li>
-            <li>
-              <Link
-                to={
-                  perfil === "Mentor"
-                    ? "/mentores/notificações"
-                    : "/startups/notificações"
-                }
-              >
-                Notificações
-              </Link>
-            </li>
-            {perfil !== "Mentor" && (
+      <Container fluid>
+        <Row style={{ alignItems: "center" }}>
+          <Col md="5">
+            <Brand />
+          </Col>
+
+          <NavWrapper>
+            <ul>
               <li>
-                <Link to="/startups/comunidades">Comunidades</Link>
+                <Link to="/inicio">Inicio</Link>
               </li>
-            )}
-            <li>
-              <Link
-                to={
-                  perfil === "Mentor" ? "/mentores/perfil" : "/startups/perfil"
-                }
-              >
-                Conta
-              </Link>
-            </li>
-          </ul>
-        </NavWrapper>
-      </Row>
+              <li>
+                <Link
+                  to={
+                    perfil === "Mentor"
+                      ? "/mentores/notificações"
+                      : "/startups/notificações"
+                  }
+                >
+                  Notificações
+                </Link>
+              </li>
+              {perfil !== "Mentor" && (
+                <li>
+                  <Link to="/startups/comunidades">Comunidades</Link>
+                </li>
+              )}
+              <li>
+                <Link
+                  to={
+                    perfil === "Mentor"
+                      ? "/mentores/perfil"
+                      : "/startups/perfil"
+                  }
+                >
+                  Conta
+                </Link>
+              </li>
+            </ul>
+          </NavWrapper>
+        </Row>
+      </Container>
     </HeaderContainer>
   );
 };

@@ -6,7 +6,7 @@ export const PaginaInternaContainer = styled.main`
   & {
     h1 {
       margin-top: var(--gap-lg);
-      color: var(--blue);
+      color: var(--primary);
       align-self: flex-start;
       width: 100%;
 
@@ -16,12 +16,17 @@ export const PaginaInternaContainer = styled.main`
         width: 100%;
         border: 1px solid var(--gray);
         margin: var(--gap-lg) 0 var(--gap-md) 0;
+        opacity: 0.2;
+
+        @media (min-width: 768px) {
+          margin: var(--gap-sm) 0 var(--gap-lg) 0;
+        }
       }
     }
   }
 
   &.modal {
-    background: var(--blue);
+    background: var(--primary);
     filter: brightness(50%);
     min-height: 150vh;
     cursor: pointer;

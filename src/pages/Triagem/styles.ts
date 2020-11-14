@@ -11,7 +11,7 @@ export const TriagemContainer = styled.main`
 export const TriagemForm = styled.form`
   & {
     background: white;
-    width: 35vw;
+    width: 100%;
     padding: var(--gap-md) calc(var(--gap) * 4);
     border: 1px solid #d4d4d4;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
