@@ -1,5 +1,6 @@
 import React from "react";
 // styles
+import "bootstrap/dist/css/bootstrap.min.css";
 import Colors from "./styles/settings/colors";
 import Gaps from "./styles/settings/gaps";
 import Reset from "./styles/generic/reset";
