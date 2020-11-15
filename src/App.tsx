@@ -9,6 +9,7 @@ import Elements from "./styles/base/elements";
 import Routes from "./routes";
 // contexts
 import { Modal } from "./hooks/modal";
+import { CreateUsers } from "./hooks/create-user";
 
 const App = () => {
   return (
@@ -19,7 +20,9 @@ const App = () => {
       <Elements />
 
       <Modal>
-        <Routes />
+        <CreateUsers>
+          <Routes />
+        </CreateUsers>
       </Modal>
     </>
   );
