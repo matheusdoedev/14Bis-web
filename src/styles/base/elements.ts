@@ -25,6 +25,7 @@ const Elements = createGlobalStyle`
         font-weight: 700;
     }
 
+    select,
     input,
     span {
         font-size: .875rem;

@@ -13,7 +13,10 @@ export const BottomMenuContainer = styled.nav`
     justify-content: space-around;
     align-items: center;
 
-    @media (min-width: 960px) {
+    position: absolute;
+    bottom: 0;
+
+    @media (min-width: 768px) {
       display: none;
     }
   }

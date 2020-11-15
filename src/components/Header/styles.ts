@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
     padding-top: calc(var(--gap) * 4);
     align-items: center;
 
-    @media (min-width: 960px) {
+    @media (min-width: 768px) {
       display: none;
     }
   }

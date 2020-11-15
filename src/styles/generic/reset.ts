@@ -32,10 +32,7 @@ const Reset = createGlobalStyle`
         color: var(--gray);
 
         height: 100%;
-        display: flex;
         position: relative;
-        flex-direction: column;
-        margin: 0;
     }
 
     img {
@@ -45,6 +42,16 @@ const Reset = createGlobalStyle`
 
     ul {
         list-style: none;
+    }
+
+    @media (max-width: 768px) {
+        .container-fluid {
+            min-height: 100vh;
+            overflow: hidden;
+            display: block;
+            position: relative;
+            padding-bottom: 100px;
+        }
     }
 `;
 

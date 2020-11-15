@@ -6,7 +6,7 @@ export const HeaderContainer = styled.header`
     background: var(--gradient);
     padding: var(--gap) 0;
 
-    @media (max-width: 960px) {
+    @media (max-width: 768px) {
       display: none;
     }
   }

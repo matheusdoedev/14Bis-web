@@ -1,6 +1,4 @@
-import React from "react";
-// hooks
-import { useCadastro } from "../../hooks/create-user";
+import React, { useContext } from "react";
 // styles
 import { CadastroContainer, CadastroForm } from "./styles";
 // components
@@ -8,19 +6,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import Input from "../../components/Input";
 import { Button } from "../../styles/objects/button";
 import Brand from "../../components/Brand";
+// contexts
+import { UsersContext } from "../../hooks/create-user";
 
 const Cadastro = () => {
-  const {
-    email,
-    handleCreateUser,
-    name,
-    telefone,
-    setTelefone,
-    setName,
-    setEmail,
-    setSenha,
-    senha,
-  } = useCadastro();
+  const createUsers = useContext(UsersContext);
 
   return (
     <CadastroContainer>
@@ -33,23 +23,23 @@ const Cadastro = () => {
 
         <Row>
           <Col xs="12" md={{ offset: 3, span: 6 }}>
-            <CadastroForm onSubmit={handleCreateUser}>
+            <CadastroForm>
               <h1>Cadastre-se</h1>
 
               <Input
                 name="nome"
                 label="Nome"
                 placeholder="Digite seu nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={createUsers?.NAME}
+                onChange={(e) => createUsers?.setNAME(e.target.value)}
               />
 
               <Input
                 name="telefone"
                 label="Telefone"
                 placeholder="Digite seu telefone"
-                value={telefone}
-                onChange={(e) => setTelefone(e.target.value)}
+                value={createUsers?.TELEFONE}
+                onChange={(e) => createUsers?.setTELEFONE(e.target.value)}
                 required
               />
 
@@ -58,8 +48,8 @@ const Cadastro = () => {
                 name="email"
                 label="E-mail"
                 placeholder="Digite seu email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={createUsers?.EMAIL}
+                onChange={(e) => createUsers?.setEMAIL(e.target.value)}
                 required
               />
 
@@ -68,8 +58,7 @@ const Cadastro = () => {
                 name="senha"
                 label="Senha"
                 placeholder="Digite sua senha"
-                value={senha}
-                onChange={(e) => setSenha(e.target.value)}
+                onChange={(e) => createUsers?.setSENHA(e.target.value)}
                 required
               />
 

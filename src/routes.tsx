@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Cadastro from "./pages/Cadastro";
 import Triagem from "./pages/Triagem";
+import CadastroEmpreendedor from "./pages/Cadastro-Empreendedor";
 import Inicio from "./pages/Pagina-principal";
 import QuemSomos from "./pages/Quem-somos";
 import Consultorias from "./pages/Consultorias";
@@ -29,6 +30,8 @@ const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/cadastro" component={Cadastro} />
         <Route path="/triagem" component={Triagem} />
+
+        <Route path="/cadastro-empreendedor" component={CadastroEmpreendedor} />
         <Route path="/inicio" component={Inicio} />
         {/* 14Bis */}
         <Route path="/quem-somos" component={QuemSomos} />

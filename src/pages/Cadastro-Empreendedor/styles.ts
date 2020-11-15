@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TriagemContainer = styled.main`
+export const CadastroEmpreendedorContainer = styled.main`
   & {
     background: var(--gradient);
     min-height: 100vh;
@@ -8,7 +8,7 @@ export const TriagemContainer = styled.main`
   }
 `;
 
-export const TriagemForm = styled.form`
+export const CadastroEmpreendedorForm = styled.form`
   & {
     background: white;
     width: 100%;
