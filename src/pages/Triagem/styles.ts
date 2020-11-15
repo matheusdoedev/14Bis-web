@@ -22,12 +22,15 @@ export const TriagemForm = styled.form`
       color: var(--blue);
     }
 
-    h1 {
+    h1,
+    h2,
+    h3 {
       margin-bottom: var(--gap-md);
     }
 
-    h2 {
-      margin-bottom: var(--gap-sm);
+    h3 {
+      font-size: 18px;
+      color: var(--gray);
     }
 
     a {
