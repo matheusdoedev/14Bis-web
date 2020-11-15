@@ -1,55 +1,63 @@
-import React, { FormEvent } from "react";
-// hooks
-import { useHistory } from "react-router-dom";
+import React, { useContext, FormEvent } from "react";
 // styles
 import { TriagemContainer, TriagemForm } from "./styles";
 // components
 import { Container, Row, Col } from "react-bootstrap";
 import { Button } from "../../styles/objects/button";
-import Input from "../../components/Input";
 import CheckboxList from "../../components/Checkbox-list";
+// contexts
+import { UsersContext } from "../../hooks/create-user";
+import { useHistory } from "react-router-dom";
 
 const Triagem = () => {
+  const createUsers = useContext(UsersContext);
+
   const history = useHistory();
-
-  const gambiarraSubmit = (event: FormEvent) => {
-    event.preventDefault();
-
-    history.push("/inicio");
-  };
 
   return (
     <TriagemContainer>
       <Container fluid>
         <Row>
           <Col xs="12" md={{ offset: 3, span: 6 }}>
-            <TriagemForm onSubmit={gambiarraSubmit}>
-              <h1>Qual é o seu perfil?</h1>
+            <TriagemForm
+              onSubmit={(event: FormEvent) => {
+                event.preventDefault();
+
+                createUsers?.handleCreateUser(event, (perfil: string) => {
+                  if (
+                    perfil === "MENTO" ||
+                    perfil === "CONSU" ||
+                    perfil === "INVES"
+                  ) {
+                    history.push("/cadastro-mentor");
+                  } else {
+                    history.push("/cadastro-empreendedor");
+                  }
+                });
+              }}
+            >
+              <h1>Seja bem vindo(a)!</h1>
 
               <fieldset>
-                <h2>Sou um:</h2>
+                <h3>Nós queremos te ajudar a econtrar o que você precisa!</h3>
+                <h3>Então, conta aí pra gente:</h3>
+
+                <h2>Em qual perfil você se encaixa?</h2>
+
                 <CheckboxList
                   name="perfil"
-                  required
+                  type="radio"
                   options={[
-                    { value: "empreendedor", label: "Empreendedor" },
-                    { value: "mentor", label: "Mentor/Consultor" },
+                    { value: "startup", label: "Startup" },
+                    { value: "mentor", label: "Mentor" },
                     {
-                      value: "futuro-empreendedor",
-                      label: "Futuro empreendedor",
+                      value: "consultor",
+                      label: "Consultor",
                     },
-                  ]}
-                />
-              </fieldset>
-
-              <fieldset>
-                <h2>Você já possui uma empresa/startup?</h2>
-                <CheckboxList
-                  name="possui-empresa-startup"
-                  required
-                  options={[
-                    { value: "sim", label: "Sim" },
-                    { value: "não", label: "Não" },
+                    {
+                      value: "investidor",
+                      label: "Investidor",
+                    },
                   ]}
                 />
               </fieldset>

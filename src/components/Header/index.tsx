@@ -15,7 +15,7 @@ const Header: React.FC = ({ children }) => {
             <LogoHeader src={logoImg} alt="14Bis" />
           </Col>
 
-          <Col xs="3" style={{ display: "flex", justifyItems: "flex-end" }}>
+          <Col xs="3" style={{ display: "flex", justifyContent: "flex-end" }}>
             {children}
           </Col>
         </Row>
