@@ -110,14 +110,66 @@ export const PublicoAlvo = styled.div`
 export const DadosItem = styled.article`
   & {
     display: flex;
+    border: 1px solid var(--primary);
+    width: 100%;
+    border-radius: 9px;
+    margin-bottom: var(--gap-sm);
+  }
+`;
 
-    div {
-      justify-content: center;
+export const DadosItemIcon = styled.div`
+  & {
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--gradient);
+    border-radius: 9px 0 0 9px;
+    color: white;
+    flex-basis: 29%;
 
-      img {
-        width: 30px;
-        height: 30px;
-      }
+    img {
+      margin: 0 auto;
+      width: 30px;
+      height: 30px;
+    }
+  }
+`;
+
+export const DadosItemProgress = styled.div`
+  & {
+    padding: var(--gap);
+    justify-content: center;
+    flex-basis: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+
+    span,
+    .progress,
+    p {
+      margin-left: var(--gap);
+      font-weight: 700;
+    }
+
+    p {
+      margin-top: 6px;
+    }
+
+    .progress {
+      margin-top: var(--gap);
+      width: 120px;
+    }
+  }
+`;
+
+export const Conquistas = styled.div`
+  & {
+    img {
+      width: 58px;
+      height: 58px;
     }
   }
 `;
