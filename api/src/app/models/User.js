@@ -2,36 +2,41 @@ const Sequelize = require("sequelize");
 
 const sequelize = require("../../config/database");
 
-const User = sequelize.define("User", {
-  id: {
+const User = sequelize.define("USUARIO", {
+  ID_USUARIO: {
     type: Sequelize.INTEGER,
     primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
 
-  nome: {
+  NOME_COMPLETO: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  telefone: {
+  FONE_LOGIN: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  email: {
+  EMAIL_LOGIN: {
     type: Sequelize.STRING,
     allowNull: false,
     // unique: true,
   },
 
-  perfil: {
+  ID_PERFIL: {
     type: Sequelize.STRING,
     allowNull: false,
   },
 
-  senha: {
+  SENHA: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+
+  SN_ATIVO: {
     type: Sequelize.STRING,
     allowNull: false,
   },

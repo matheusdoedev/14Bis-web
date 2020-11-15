@@ -3,56 +3,58 @@ const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 // utils
 const generateToken = require("../../utils/generateToken");
+const Empreendedor = require("../models/Empreendedor");
 
 class UsersController {
   static async postCreateUser(req, res) {
     try {
-      let { nome, email, telefone, senha, perfil } = req.body;
+      let { NOME_COMPLETO, EMAIL_LOGIN, FONE_LOGIN, SENHA, ID_PERFIL, SN_ATIVO } = req.body;
 
       // password must be more than or equal 6 characters
-      if (senha.length < 6) {
+      if (SENHA.length < 6) {
         return res.status(400).send({
-          error: "The password must to have more than or equal 6 characters",
+          error: "A senha deve ter pelo menos 6 caracteres",
         });
       }
 
       // user
       const user = {
-        nome,
-        email,
+        NOME_COMPLETO,
+        EMAIL_LOGIN,
         // encrypting user password before save in database with bcryptjs
-        senha: await bcrypt.hash(senha, 10),
-        telefone,
-        perfil,
+        SENHA,
+        FONE_LOGIN,
+        ID_PERFIL,
+        SN_ATIVO,
       };
 
       // saving user data on users migration
       const insertedUser = await User.create(user);
 
-      // getting registered user id
-      const userId = insertedUser.id;
+      // getting registered user ID_USUARIO
+      const userId = insertedUser.ID_USUARIO;
 
       // token
-      const token = generateToken({ id: userId });
+      const token = generateToken({ ID_USUARIO: userId });
 
       // reseting req.body password
-      senha = undefined;
+      SENHA = undefined;
 
-      return res.json({ user_id: userId, token, perfil });
+      return res.json({ user_id: userId, token, ID_PERFIL, SN_ATIVO });
     } catch (error) {
       console.log(error);
-      return res.status(400).send({ error: "User create error" });
+      return res.status(400).send({ error: "Erro ao criar usuário" });
     }
   }
 
   static async postUserAuthentication(req, res) {
     try {
-      let { email, senha } = req.body;
+      let { EMAIL_LOGIN, SENHA } = req.body;
 
       // searching in database if a user with this email send on red.body exists
       const user = await User.findAll({
         where: {
-          email,
+          EMAIL_LOGIN,
         },
       });
 
@@ -61,39 +63,39 @@ class UsersController {
 
       // checks if had founded a valid email
       if (!userSerialized) {
-        return res.status(400).send({ error: "User not found, invalid email" });
+        return res.status(400).send({ error: "Usuário não encontrado/e-mail inválido" });
       }
 
-      // checks if the user passwords is correct
-      if (!(await bcrypt.compare(senha, userSerialized.senha))) {
-        return res.status(400).send({ error: "Invalid password" });
+      if (userSerialized.SENHA !== SENHA) {
+         return res.status(400).send({ error: "Senha incorreta." }); 
       }
 
       // token
-      const token = generateToken({ id: userSerialized.id });
+      const token = generateToken({ id: userSerialized.ID_USUARIO });
 
       // reseting req.body password
-      senha = undefined;
+      SENHA = undefined;
 
       return res.json({
-        user_id: userSerialized.id,
-        perfil: userSerialized.perfil,
+        user_id: userSerialized.ID_USUARIO,
+        perfil: userSerialized.ID_PERFIL,
+        sn_ativo: userSerialized.SN_ATIVO,
         token,
       });
     } catch (error) {
       console.log(error);
-      return res.status(400).send({ error: "User authentication error" });
+      return res.status(400).send({ error: "Erro de autenticação de usuário" });
     }
   }
 
   static async getUserData(req, res) {
     try {
-      let { id, perfil } = req.query;
+      let { ID_USUARIO, ID_PERFIL } = req.query;
 
       // searching in database if a user with this email send on red.body exists
       const user = await User.findAll({
         where: {
-          id,
+          ID_USUARIO,
         },
       });
 
@@ -101,20 +103,24 @@ class UsersController {
       const userSerialized = user.length > 0 ? user[0].dataValues : null;
 
       return res.json({ ...userSerialized });
-    } catch (err) {
+    } catch (error) {
       console.log(error);
-      return res.status(400).send({ error: "Get user error" });
+      return res.status(400).send({ error: "Erro ao obter usuário" });
     }
   }
 
   static async putUserData(req, res) {
     try {
-      let { id, perfil } = req.query;
+      let { ID_USUARIO, ID_PERFIL } = req.query;
 
-      return res.json({ id, perfil });
-    } catch (err) {
+      if (perfil === "MENT") {
+        Empreendedor.create({ ID_USUARIO });
+      }
+
+      return res.json({ ID_USUARIO, ID_PERFIL });
+    } catch (error) {
       console.log(error);
-      return res.status(400).send({ error: "Get user error" });
+      return res.status(400).send({ error: "Erro ao obter usuário" });
     }
   }
 }
