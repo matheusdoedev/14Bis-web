@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 // pages
-import Home from "./pages/Home";
+import Home from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
 import Triagem from "./pages/Triagem";
 import CadastroEmpreendedor from "./pages/Cadastro-Empreendedor";
@@ -21,6 +21,7 @@ import TermosDeUso from "./pages/Termos-de-uso";
 import Estatistica from "./pages/Estatistica";
 import MentoresConsultorias from "./pages/Mentores-Consultorias";
 import MentoresMentorias from "./pages/Mentores-Mentorias";
+import CadastroMentor from "./pages/Cadastro-Mentor";
 
 const Routes = () => {
   return (
@@ -30,10 +31,11 @@ const Routes = () => {
         <Route path="/" exact component={Home} />
         <Route path="/cadastro" component={Cadastro} />
         <Route path="/triagem" component={Triagem} />
-
+        {/* cadastros */}
         <Route path="/cadastro-empreendedor" component={CadastroEmpreendedor} />
-        <Route path="/inicio" component={Inicio} />
+        <Route path="/cadastro-mentor" component={CadastroMentor} />
         {/* 14Bis */}
+        <Route path="/inicio" component={Inicio} />
         <Route path="/quem-somos" component={QuemSomos} />
         <Route path="/nossos-parceiros" component={NossosParceiros} />
         {/* startups routes */}

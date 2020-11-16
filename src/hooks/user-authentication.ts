@@ -1,7 +1,9 @@
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useHistory } from "react-router-dom";
 // utils
 import users from "../utils/users";
+// services
+import api from "../services/14bis-api";
 
 export const useAutenticacao = () => {
   const [email, setEmail] = useState("");
@@ -9,17 +11,26 @@ export const useAutenticacao = () => {
 
   const history = useHistory();
 
-  const handleUserAuthentication = (event: FormEvent) => {
+  const handleUserAuthentication = async (
+    event: FormEvent,
+    callback: () => void
+  ) => {
     event.preventDefault();
 
-    const userLogging = users.find(
-      (user) => user.email === email && user.senha === senha
-    );
+    await api
+      .post("users/user-authentication", {
+        EMAIL_LOGIN: email,
+        SENHA: senha,
+      })
+      .then((r) => r.data)
+      .then(({ perfil, user_id, sn_ativo, token }) => {
+        localStorage.setItem("PERFIL", perfil);
+        localStorage.setItem("ID", user_id);
+        localStorage.setItem("SN_ATIVO", sn_ativo);
+        localStorage.setItem("TOKEN", token);
 
-    if (userLogging) {
-      localStorage.setItem("Perfil", userLogging.perfil);
-      history.push("/inicio");
-    }
+        callback();
+      });
   };
 
   return {

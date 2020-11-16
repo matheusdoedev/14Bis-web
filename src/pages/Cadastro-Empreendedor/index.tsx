@@ -1,4 +1,5 @@
-import React from "react";
+import React, { FormEvent } from "react";
+import { useHistory } from "react-router-dom";
 // styles
 import {
   CadastroEmpreendedorContainer,
@@ -25,6 +26,24 @@ const CadastroEmpreendedor = () => {
     ID_FATURAMENTO_ANUAL,
     ID_SEGUIMENTO_SECUN,
     ID_PUBLICO_ALVO,
+    CNPJ,
+    WEBSITE,
+    LINKEDIN,
+    FACEBOOK,
+    CAMINHO_FOTO,
+    CEP,
+    ENDERECO,
+    CIDADE,
+    UF,
+    setENDERECO,
+    setCNPJ,
+    setWEBSITE,
+    setFACEBOOK,
+    setLINKEDIN,
+    setCAMINHOFOTO,
+    setCEP,
+    setCIDADE,
+    setUF,
     setPUBLICOALVO,
     setNOMEFANTASIA,
     setRAZAOSOCIAL,
@@ -38,20 +57,25 @@ const CadastroEmpreendedor = () => {
     handleCreateStartup,
   } = useCreateStartup();
 
+  const history = useHistory();
+
   return (
     <CadastroEmpreendedorContainer>
       <Container fluid>
         <Row>
           <Col xs="12" md={{ offset: 3, span: 6 }}>
-            <CadastroEmpreendedorForm onSubmit={handleCreateStartup}>
-              <h1>Seja bem vindo(a)!</h1>
+            <CadastroEmpreendedorForm
+              onSubmit={(e: FormEvent) => {
+                e.preventDefault();
+
+                handleCreateStartup(e, () => {
+                  history.push("/inicio");
+                });
+              }}
+            >
+              <h1>Seja bem vindo(a) Empreendedor(a)!</h1>
 
               <fieldset>
-                <h3>Nós queremos te ajudar a econtrar o que você precisa!</h3>
-                <h3>Então, conta aí pra gente:</h3>
-
-                <h2>Em qual perfil você se encaixa?</h2>
-
                 <Input
                   name="nome-da-startup"
                   label="Nome da startup"
@@ -67,6 +91,67 @@ const CadastroEmpreendedor = () => {
                   onChange={(e) => setRAZAOSOCIAL(e.target.value)}
                 />
 
+                <Input
+                  name="descricao-da-startup"
+                  label="CNPJ"
+                  value={CNPJ}
+                  onChange={(e) => setCNPJ(e.target.value)}
+                />
+
+                <Select
+                  name="publico-alvo"
+                  label="Segmento Principal"
+                  value={ID_SEGUIMENTO_PRINC}
+                  setValue={setSEGUIMENTOPRINCIPAL}
+                  options={[
+                    { value: 1, label: "Segurança e Defesa" },
+                    { value: 2, label: "Recursos Humanos" },
+                    { value: 3, label: "Hardware" },
+                    { value: 4, label: "Logística e Mobilidade Urbana" },
+                    { value: 5, label: "Seguros" },
+                    { value: 6, label: "Energia" },
+                    { value: 7, label: "Cloud Computing" },
+                    { value: 8, label: "Produtos de Consumo" },
+                    { value: 9, label: "Meio Ambiente" },
+                    { value: 10, label: "Automobilismo" },
+                    { value: 11, label: "Mobile" },
+                    { value: 12, label: "Direito" },
+                    { value: 13, label: "Pets" },
+                    { value: 14, label: "Advertising" },
+                    { value: 15, label: "Eventos e Turismo" },
+                    { value: 16, label: "Nanotecnologia" },
+                    { value: 17, label: "Construção Civil" },
+                    { value: 18, label: "Indústria" },
+                    { value: 19, label: "Imobiliário" },
+                    { value: 20, label: "Finanças" },
+                    { value: 21, label: "Educação" },
+                    { value: 22, label: "Infantil" },
+                    { value: 23, label: "Biotecnologia" },
+                    { value: 24, label: "Esportes" },
+                    { value: 25, label: "TIC e Telecom" },
+                    { value: 26, label: "Transportes" },
+                    { value: 27, label: "Agronegócio" },
+                    { value: 28, label: "Vendas e Marketing" },
+                    { value: 29, label: "E-Commerce" },
+                    { value: 30, label: "Desenvolvimento de Software" },
+                    { value: 31, label: "Recrutamento" },
+                    { value: 32, label: "Gestão" },
+                    { value: 33, label: "Big Data" },
+                    { value: 34, label: "Vídeo" },
+                    { value: 35, label: "Casa e Família" },
+                    { value: 36, label: "Games" },
+                    { value: 37, label: "Moda e Beleza" },
+                    { value: 38, label: "CRM" },
+                    { value: 39, label: "Outros" },
+                    { value: 40, label: "Internet" },
+                    { value: 41, label: "Saúde e Bem-estar" },
+                    { value: 42, label: "Varejo / Atacado" },
+                    { value: 43, label: "Serviços Profissionais" },
+                    { value: 44, label: "Comunicação e Mídia" },
+                    { value: 45, label: "Entretenimento" },
+                  ]}
+                />
+
                 <InputGroup>
                   <Input
                     type="date"
@@ -76,6 +161,7 @@ const CadastroEmpreendedor = () => {
                     value={DT_FUNDACAO}
                     onChange={(e) => setFUNDACAO(e.target.value)}
                   />
+
                   <Select
                     name="segmento"
                     label="Segmento"
@@ -216,6 +302,65 @@ const CadastroEmpreendedor = () => {
                     { value: 8, label: "+5 milhões" },
                   ]}
                 />
+
+                <Input
+                  type="url"
+                  name="descricao-da-startup"
+                  label="URL da imagem (marca)"
+                  value={CAMINHO_FOTO}
+                  onChange={(e) => setCAMINHOFOTO(e.target.value)}
+                />
+
+                <Input
+                  name="descricao-da-startup"
+                  label="Website"
+                  value={WEBSITE}
+                  onChange={(e) => setWEBSITE(e.target.value)}
+                />
+
+                <Input
+                  name="descricao-da-startup"
+                  label="Linkedin"
+                  value={LINKEDIN}
+                  onChange={(e) => setLINKEDIN(e.target.value)}
+                />
+
+                <Input
+                  name="descricao-da-startup"
+                  label="Facebook"
+                  value={FACEBOOK}
+                  onChange={(e) => setFACEBOOK(e.target.value)}
+                />
+
+                <Input
+                  name="descricao-da-startup"
+                  label="CEP"
+                  value={CEP}
+                  onChange={(e) => setCEP(e.target.value)}
+                />
+
+                <Input
+                  name="descricao-da-startup"
+                  label="Endereço"
+                  value={ENDERECO}
+                  onChange={(e) => setENDERECO(e.target.value)}
+                />
+
+                <InputGroup>
+                  <Input
+                    name="descricao-da-startup"
+                    label="Cidade"
+                    value={CIDADE}
+                    onChange={(e) => setCIDADE(e.target.value)}
+                  />
+
+                  <Input
+                    name="descricao-da-startup"
+                    label="UF"
+                    value={UF}
+                    onChange={(e) => setUF(e.target.value)}
+                  />
+                </InputGroup>
               </fieldset>
               <Button as="button" type="submit">
                 Continuar

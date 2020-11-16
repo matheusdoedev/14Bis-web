@@ -35,8 +35,6 @@ const Consultorias = () => {
               },
             ]}
           />
-
-          <BottomButton label="Torna-me mentor" to="/agendar-consultoria" />
         </Col>
 
         <Col xs="12" md="6">
@@ -58,6 +56,7 @@ const Consultorias = () => {
               },
             ]}
           />
+          <BottomButton label="Torna-me mentor" to="/agendar-consultoria" />
         </Col>
       </PaginaInterna>
     </>

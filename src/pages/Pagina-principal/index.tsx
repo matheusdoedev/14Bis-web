@@ -18,7 +18,7 @@ import Title from "../../components/Title";
 import HeaderDesktop from "../../components/Header-desktop";
 
 const PaginaInicial = () => {
-  const perfil = localStorage.getItem("Perfil");
+  const perfil = localStorage.getItem("PERFIL");
 
   return (
     <PaginaPrincipalContainer data-anime="modal">
@@ -32,7 +32,7 @@ const PaginaInicial = () => {
               <Title title="Para o seu sucesso, 14 Bis é o caminho." />
               <p>O que a 14 Bis faz por você?</p>
 
-              {perfil === "Mentor" ? (
+              {perfil === "MENTO" ? (
                 <Menu
                   options={[
                     {
@@ -70,12 +70,7 @@ const PaginaInicial = () => {
                       label: "Investimento",
                       image: investimentoImg,
                     },
-                    {
-                      path: "/startups/comunidade",
-                      label: "Comunidade",
-                      image: comunidadeImg,
-                    },
-
+                    
                     {
                       path: "/nossos-parceiros",
                       label: "Nossos Parceiros",

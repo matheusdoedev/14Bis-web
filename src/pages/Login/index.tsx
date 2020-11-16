@@ -1,5 +1,6 @@
-import React from "react";
+import React, { FormEvent } from "react";
 // hooks
+import { useHistory } from "react-router-dom";
 import { useAutenticacao } from "../../hooks/user-authentication";
 // styles
 import { ForgotPasswordButton, HomeContainer, LoginForm } from "./styles";
@@ -18,6 +19,8 @@ const Home = () => {
     setSenha,
   } = useAutenticacao();
 
+  const history = useHistory();
+
   return (
     <HomeContainer>
       <Container fluid>
@@ -29,7 +32,15 @@ const Home = () => {
 
         <Row>
           <Col xs="12" md={{ offset: 3, span: 6 }}>
-            <LoginForm onSubmit={handleUserAuthentication}>
+            <LoginForm
+              onSubmit={(e: FormEvent) => {
+                e.preventDefault();
+
+                handleUserAuthentication(e, () => {
+                  history.push("/inicio");
+                });
+              }}
+            >
               <h1>Faça login</h1>
 
               <Input
