@@ -49,6 +49,6 @@ export const ForgotPasswordButton = styled(Link)`
     color: var(--gray);
     font-weight: 600;
     margin-top: 8px;
-    margin-bottom: var(--gap-xl);
+    margin-bottom: var(--gap-lg);
   }
 `;

@@ -1,7 +1,6 @@
-import React, { Dispatch, useEffect } from "react";
+import React, { Dispatch } from "react";
 // hooks
 import { FormEvent, useState, createContext } from "react";
-import { useHistory } from "react-router-dom";
 // services
 import api from "../services/14bis-api";
 
@@ -12,6 +11,8 @@ export interface UsersContextInterface {
   EMAIL: string;
   SENHA: string;
   PERFIL: string;
+  USER_ID: number | undefined;
+  SN_ATIVO: string;
   setNAME: Dispatch<React.SetStateAction<string>>;
   setTELEFONE: Dispatch<React.SetStateAction<string>>;
   setEMAIL: Dispatch<React.SetStateAction<string>>;
@@ -28,15 +29,15 @@ export const CreateUsers: React.FC = ({ children }) => {
   const [TELEFONE, setTELEFONE] = useState("");
   const [EMAIL, setEMAIL] = useState("");
   const [SENHA, setSENHA] = useState("");
-  const [PERFIL, setPERFIL] = useState("EMPREENDEDOR");
+  const [PERFIL, setPERFIL] = useState("");
 
-  useEffect(() => {
-    console.log(PERFIL);
-  }, [PERFIL]);
+  const [USER_ID, setUSERID] = useState<number>();
+  const [SN_ATIVO, setSNATIVO] = useState("");
 
-  const history = useHistory();
-
-  const handleCreateUser = async (event: FormEvent, callback: (perfil: string) => void) => {
+  const handleCreateUser = async (
+    event: FormEvent,
+    callback: (perfil: string) => void
+  ) => {
     event.preventDefault();
 
     await api
@@ -45,12 +46,17 @@ export const CreateUsers: React.FC = ({ children }) => {
         SENHA,
         EMAIL_LOGIN: EMAIL,
         FONE_LOGIN: TELEFONE,
-        ID_PERFIL: "EMPRE",
+        ID_PERFIL: PERFIL,
         SN_ATIVO: "S",
       })
       .then((r) => r.data)
-      .then(({ perfil }) => {
-        callback(perfil);
+      .then(({ ID_PERFIL, SN_ATIVO, token, user_id }) => {
+        setUSERID(user_id);
+        setSNATIVO(SN_ATIVO);
+        localStorage.setItem("PERFIL", ID_PERFIL);
+        localStorage.setItem("TOKEN", token);
+
+        callback(ID_PERFIL);
       })
       .catch((err) => {
         alert(err);
@@ -70,6 +76,8 @@ export const CreateUsers: React.FC = ({ children }) => {
         setTELEFONE,
         setPERFIL,
         setSENHA,
+        USER_ID,
+        SN_ATIVO,
         handleCreateUser,
       }}
     >

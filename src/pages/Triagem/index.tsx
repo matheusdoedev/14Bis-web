@@ -4,7 +4,7 @@ import { TriagemContainer, TriagemForm } from "./styles";
 // components
 import { Container, Row, Col } from "react-bootstrap";
 import { Button } from "../../styles/objects/button";
-import CheckboxList from "../../components/Checkbox-list";
+import { Checkmark } from "../../styles/objects/checkmark";
 // contexts
 import { UsersContext } from "../../hooks/create-user";
 import { useHistory } from "react-router-dom";
@@ -44,22 +44,70 @@ const Triagem = () => {
 
                 <h2>Em qual perfil você se encaixa?</h2>
 
-                <CheckboxList
-                  name="perfil"
-                  type="radio"
-                  options={[
-                    { value: "startup", label: "Startup" },
-                    { value: "mentor", label: "Mentor" },
-                    {
-                      value: "consultor",
-                      label: "Consultor",
-                    },
-                    {
-                      value: "investidor",
-                      label: "Investidor",
-                    },
-                  ]}
-                />
+                <Checkmark>
+                  <label>
+                    <input
+                      type="radio"
+                      id="PERFIL"
+                      name="PERFIL"
+                      onChange={(e) => {
+                        createUsers?.setPERFIL(e.target.value);
+                      }}
+                      checked={createUsers?.PERFIL === "EMPRE"}
+                      value="EMPRE"
+                    />
+                    <span></span>
+                  </label>
+                  <p>Startup</p>
+                </Checkmark>
+                <Checkmark>
+                  <label>
+                    <input
+                      type="radio"
+                      id="PERFIL"
+                      name="PERFIL"
+                      onChange={(e) => {
+                        createUsers?.setPERFIL(e.target.value);
+                      }}
+                      checked={createUsers?.PERFIL === "MENTO"}
+                      value="MENTO"
+                    />
+                    <span></span>
+                  </label>
+                  <p>Mentor</p>
+                </Checkmark>
+                <Checkmark>
+                  <label>
+                    <input
+                      type="radio"
+                      id="PERFIL"
+                      name="PERFIL"
+                      onChange={(e) => {
+                        createUsers?.setPERFIL(e.target.value);
+                      }}
+                      checked={createUsers?.PERFIL === "CONSU"}
+                      value="CONSU"
+                    />
+                    <span></span>
+                  </label>
+                  <p>Consultor</p>
+                </Checkmark>
+                <Checkmark>
+                  <label>
+                    <input
+                      type="radio"
+                      id="PERFIL"
+                      name="PERFIL"
+                      onChange={(e) => {
+                        createUsers?.setPERFIL(e.target.value);
+                      }}
+                      checked={createUsers?.PERFIL === "INVES"}
+                      value="INVES"
+                    />
+                    <span></span>
+                  </label>
+                  <p>Investidor</p>
+                </Checkmark>
               </fieldset>
               <Button as="button" type="submit">
                 Continuar

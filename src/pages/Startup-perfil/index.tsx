@@ -25,31 +25,34 @@ import { Container, Row, Col, ProgressBar } from "react-bootstrap";
 import Menu from "../../components/Menu";
 import { Button } from "../../styles/objects/button";
 import BottomMenu from "../../components/BottomMenu";
+// hooks
+import { useGetStartup } from "../../hooks/get-startup";
 
 const Perfil = () => {
+  const { startup } = useGetStartup();
+
   return (
     <PerfilContainer>
-      <PerfilHeader> 
-
+      <PerfilHeader>
         <LogoEmpresa>Logo</LogoEmpresa>
         <LevelEmpresa>Level da Empresa</LevelEmpresa>
       </PerfilHeader>
 
-      <Container>
+      <Container fluid>
         <Row style={{ alignItems: "center", marginTop: "var(--gap-xl)" }}>
           <Col xs="8">
             <NomeDaEmpresa>Nome da empresa</NomeDaEmpresa>
 
             <Segmento>
               <span>Segmento:</span>
-              <p>Logística e Mobilidade Urbana</p>
+              <p>{startup?.ID_SEGUIMENTO_PRINC}</p>
             </Segmento>
           </Col>
           <Col xs="4">
             <PublicoAlvo>
               <span>Publico Alvo</span>
-              <img src={b2cImg} alt="B2C" />
-              <span>B2C</span>
+              <img src={b2cImg} alt="Publico Alvo" />
+              <span>{startup?.ID_PUBLICO_ALVO}</span>
             </PublicoAlvo>
           </Col>
         </Row>
@@ -93,7 +96,7 @@ const Perfil = () => {
               <DadosItem>
                 <DadosItemIcon>
                   <img src={momentoImg} alt="Momento" />
-                  <span>Momento</span> 
+                  <span>Momento</span>
                 </DadosItemIcon>
                 <DadosItemProgress>
                   <p>Operação</p>
