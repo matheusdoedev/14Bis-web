@@ -11,11 +11,11 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   label: string;
   options: Array<{
-    value: number;
+    value: number | string;
     label: string;
   }>;
   setValue?: Dispatch<SetStateAction<number | undefined>>;
-  value?: number;
+  value?: number | string;
 }
 
 const SelectInput: React.FC<SelectProps> = ({
@@ -33,15 +33,16 @@ const SelectInput: React.FC<SelectProps> = ({
         name={name}
         id={name}
         value={value}
+        defaultValue="default"
         onChange={(e: ChangeEvent<HTMLSelectElement>) =>
           setValue ? setValue(Number(e.target.value)) : ""
         }
         {...rest}
       >
-        <option value="" disabled hidden>
+        <option value="default" disabled hidden>
           Selecione uma opção
         </option>
-        {options.map(({ value }) => (
+        {options.map(({ value, label }) => (
           <option key={value} value={value}>
             {label}
           </option>

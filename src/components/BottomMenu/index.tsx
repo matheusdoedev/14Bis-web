@@ -14,7 +14,7 @@ interface BottomMenuItemProps {
 }
 
 const BottomMenu = () => {
-  const perfil = localStorage.getItem("Perfil");
+  const perfil = localStorage.getItem("PERFIL");
 
   const BottomMenuItems: BottomMenuItemProps[] = [
     { img: homeImg, label: "Inicio", path: "/inicio" },
@@ -22,7 +22,7 @@ const BottomMenu = () => {
       img: bellImg,
       label: "Notificações",
       path:
-        perfil === "Mentor"
+        perfil === "MENTO"
           ? "/mentores/notificacoes/0"
           : "/startups/notificacoes/0",
     },
@@ -30,7 +30,7 @@ const BottomMenu = () => {
     {
       img: userImg,
       label: "Conta",
-      path: perfil === "Mentor" ? "/mentores/perfil" : "/startups/perfil",
+      path: perfil === "MENTO" ? "/mentores/perfil" : "/startups/perfil",
     },
   ];
 
